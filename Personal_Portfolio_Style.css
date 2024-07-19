@@ -1,0 +1,227 @@
+*{
+    margin:0;
+    padding:0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior:smooth;
+}
+body{
+    background: #c4c4c4;
+    color: #fff;
+}
+#header{
+    width: 100%;
+    
+
+}
+.container{
+    padding: 10px 5%;
+    text-align: center;
+}
+.header div{
+    background:#262626;
+    padding:40px;
+    font-size: 18px;
+    font-weight:300;
+    border-radius:15px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.header-text h1{
+    font-size: 50px;
+    margin-top: 200px;
+    color: rgb(80, 80, 80);
+}
+.header-text h1 span{
+    color:#000000;
+    font-size: 80px;
+}
+
+/*projects and passions*/
+#portfolio{
+    padding: 30px 0;
+}
+.portfolio-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+.portfolio-list div{
+    background:#5c5c5c;
+    padding:40px;
+    font-size: 18px;
+    font-weight:300;
+    border-radius:15px;
+    text-align: center;
+    transition: background 0.3s, transform 0.3s;
+}
+.portfolio-list div h2{
+    font-size:35px;
+    font-weight:700;
+    margin-bottom:10px;
+    
+}
+.portfolio-list div h3{
+    font-size:17px;
+    font-weight:700;
+    margin-bottom:5px;
+}
+
+.portfolio-list div h3 a {
+    color:#fff;
+}
+
+.portfolio-list button {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #000000;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 2px #292929;
+    transition: background-color 0.3s ease;
+    
+}
+
+.portfolio-list button:hover {
+    background-color: #272727;
+   
+}
+
+.portfolio-list button:active {
+    background-color: #4b4b4b;
+    box-shadow: 0 2px #666;
+    
+}
+.projects-list{
+    list-style:none;
+    text-align: left;
+}
+
+
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+.stats-section h2{
+    color:#000000;
+    font-size:40px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+.digits {
+    width: 100%;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: 0;
+    color: rgb(80, 80, 80);
+}
+.digits.line1 {
+    animation: typing1 2s steps(40, end) forwards,steps(1, end) infinite;
+}
+.digits.line2 {
+    animation: typing2 2s steps(40, end) forwards, steps(1, end) infinite;
+    animation-delay: 2s; 
+}
+.digits.line3 {
+    animation: typing3 2s steps(40, end) forwards, steps(1, end) infinite;
+    animation-delay: 4s; 
+}
+.digits.line4 {
+    animation: typing4 2s steps(40, end) forwards, steps(1, end) infinite;
+    animation-delay: 6s; 
+    text-align:left;
+}
+
+@keyframes typing1 {
+    from {
+        width: 0;
+        opacity:0;
+    }
+    to {
+        width: 100%;
+        opacity:100%;
+    }
+}
+@keyframes typing2 {
+    from {
+        width: 0;
+        opacity:100%;
+    }
+    to {
+        width: 100%;
+        opacity:100%;
+    }
+}
+@keyframes typing3 {
+    from {
+        width: 0;
+        opacity:100%;
+    }
+    to {
+        width: 100%;
+        opacity:100%;   
+    }
+}
+
+@keyframes typing4 {
+    from {
+        width: 0;
+        opacity:100%;
+    }
+    to {
+        width: 100%;
+        opacity:100%;   
+    }
+}
+
+
+#leetcode-stats-container{
+    font-size: 30px;
+    color:rgb(80, 80, 80);
+}
+
+
+
+.stats-section h1 {
+    font-size: 70px;
+    color: rgb(80, 80, 80);
+
+
+}
+/*smaller screen display */
+@media only screen and (max-width:600px){
+    #header{
+        background-image: url();
+    }
+    .header-text{
+        margin-top:100%;
+        font-size:16px;
+    }
+    .header-text h1{
+        font-size:30px;
+    }
+    .portfolio-list{
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+        grid-gap: 40px;
+        margin-top: 20px;
+    }
+    .portfolio-list div h2{
+        font-size:20px;
+        font-weight:700;
+        margin-bottom:10px;
+    }
+    
+}

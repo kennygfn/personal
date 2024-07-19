@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: #0d0d0d;
+    color: #00ff00;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
+    max-width: 90%;
+    overflow-y: auto;
+}
+
+.pc-build {
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #00ff00;
+    border-radius: 15px;
+    padding: 20px;
+    flex: 1;
+    min-width: 300px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.pc-build:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+}
+
+.pc-build h2 {
+    margin-top: 0;
+    color: #00ff00;
+    text-align: center;
+    font-size: 2.5em;
+    border-bottom: 1px solid #00ff00;
+    padding-bottom: 10px;
+}
+
+.pc-build ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pc-build ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 255, 0, 0.3);
+    font-size: 1.2em;
+}
+
+.pc-build ul li:last-child {
+    border-bottom: none;
+}
+
+.pc-build strong {
+    color: #00ff00;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .pc-build ul {
+        grid-template-columns: 1fr;
+    }
+}

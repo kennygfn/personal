@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ken Gao</title>
+    <link rel="stylesheet" href="Personal_Portfolio_Style.css">
+    <script src="https://kit.fontawesome.com/1e260b47bd.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <div class="header-text">
+                <h1><span>Ken Gao</span><br>Computer Science student at the University of Waterloo</h1>
+        </div>
+    </div>
+</div>
+
+<!-- Portfolio Section -->
+<div id="portfolio">
+    <div class="container">
+        <div class="portfolio-list">
+            <div class="passions">
+                <h2>Passions</h2>
+                <h3>
+                    Being a big gamer, I am fascinated by PC hardware. I enjoy mixing and matching parts, <br>
+                    tweaking my PC, and following the release of new models. <br>
+                    Here are some of the PCs I've built in the past! <br>
+                    <button onclick="openNewPage()" class="gotoPCs">Click me</button>
+                </h3>
+            </div>
+            <div class="projects"> 
+                <h2>Projects</h2>
+                <ul class="projects-list">
+                    <li>
+                        <button onclick="openNewPage1()" class="project-buttons">b0dyf0cus.io:</button>
+                        <h3>Visually customize a workout with interactive svg and see if today is arm day or leg day</h3>
+                    </li>
+                    <li>
+                        <button onclick="openNewPage2()" class="project-buttons">UW Housing Ranker:</button>
+                        <h3>See which residence is best for you depending on the faculty you are studying</h3>
+                    </li>
+                    <li>
+                        <button onclick="openNewPage3()" class="project-buttons">IGCC.io:</button>
+                        <h3>Tired of people unfollowing you to boost their follower ratio? Check who in your following list is not following you back</h3>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="stats"> 
+    <div class="container">
+        <div class="stats-section">
+            <div>
+                <h2>Digits of PI Memorized</h2> 
+                <h2 id="counter">0</h2>
+                <h3 class="digits line1">3.141592653589793238462643383279502884197169399375</h3>
+                <h3 class="digits line2">10582097494459230781640628620899862803482534211706</h3>
+                <h3 class="digits line3">79821480865132823066470938446095505822317253594081</h3>
+                <h3 class="digits line4">284811174502</h3>
+            </div>    
+            <div>
+                <h2>LeetCode Stats</h2>
+                <div id="leetcode-stats-container">
+                    Loading stats...
+                    
+                </div>
+            </div>
+            <div>
+                <h2>USA Computing Olympiad</h2>
+                <h1>Rank: <img src="D:\PortfolioWeb\gold.png" width="50" height="50"> Gold</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openNewPage() {
+        window.open('PCbuild.html', '_blank');
+    }
+
+    function openNewPage1() {
+        window.open('https://kennygfn.github.io/b0dyf0cus', '_blank');
+    }
+
+    function openNewPage2() {
+        window.open('https://kennygfn.github.io/UWMap', '_blank');
+    }
+
+    function openNewPage3() {
+        window.open('https://kennygfn.github.io/IGTrack', '_blank');
+    }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+            {pageLanguage: 'en'},
+            'google_translate_element'
+        );
+    }
+</script>
+
+<script> 
+    function animateDigitsAndCounter() {
+        let digitsElement = document.querySelectorAll('.digits');
+        let counterElement = document.getElementById('counter');
+        let count = 0;
+
+        let interval = setInterval(function() {
+            if (count <= 160) {
+                counterElement.textContent = count;
+                count++;
+            } else {
+                clearInterval(interval);
+                counterElement.textContent = 160; 
+            }
+        }, 40);
+    }
+    window.onload = animateDigitsAndCounter;
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const username = 'KenG23';
+    const statsUrl = `https://leetcode-stats-api.herokuapp.com/${username}`;
+
+    fetch(statsUrl)
+        .then(response => response.json())
+        .then(data => {
+            const statsContainer = document.getElementById('leetcode-stats-container');
+            if (data.status === 'success') {
+                statsContainer.innerHTML = `
+                    <h3><span style = "color: black;"> Total Solved:</span> ${data.totalSolved} / ${data.totalQuestions}</h3>
+                    <h3><span style="color: #4caf50;">Easy:</span> ${data.easySolved} / ${data.totalEasy}</h3>
+                    <h3><span style="color: #ff9800;">Medium:</span> ${data.mediumSolved} / ${data.totalMedium}</h3>
+                    <h3><span style="color: #f44336;">Hard:</span> ${data.hardSolved} / ${data.totalHard}</h3>
+                    <h3><span style = "color: black;">Ranking:</span> ${data.ranking}</h3>
+                `;
+            } else {
+                statsContainer.innerHTML = `<p>Failed to fetch stats. Please check your username.</p>`;
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching Leetcode stats:', error);
+            const statsContainer = document.getElementById('leetcode-stats-container');
+            statsContainer.innerHTML = `<p>Error</p>`;
+        });
+});
+
+</script>
+</body>
+</html>
